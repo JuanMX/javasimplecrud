@@ -8,12 +8,9 @@ import javax.swing.JButton;
 
 //menu bar
 import javax.swing.JRadioButtonMenuItem;
-import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
-import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JMenu;
-import javax.swing.JMenuItem;
 import javax.swing.JMenuBar;
 import java.util.ArrayList;
 import javax.swing.ButtonGroup;
@@ -97,6 +94,7 @@ public class viewSimpleCrud extends JFrame implements ActionListener{
 		schema.layoutContainer(getContentPane());
 	}
 	
+	
 	private class ManagerElements implements ActionListener {
 		
 		public void actionPerformed(ActionEvent event) {
@@ -114,6 +112,10 @@ public class viewSimpleCrud extends JFrame implements ActionListener{
 							if (lookAndFeels[i].getText().equals(info.getName())) {
 								
 								lookAndFeelSelected = info.getName();
+								
+								ConfigManagement config = new ConfigManagement();
+								
+								config.setConfig("lookAndFeel", lookAndFeelSelected);
 								
 								JOptionPane.showMessageDialog( null, "The look and feel " + lookAndFeelSelected + " will be set next time you run the program", "Can not put the theme at runtime", JOptionPane.INFORMATION_MESSAGE );
 								

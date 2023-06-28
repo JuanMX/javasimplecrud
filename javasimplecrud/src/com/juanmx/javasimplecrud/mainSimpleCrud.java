@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 /**
- * Main class, it launchs the project
+ * Main class, it launches the project
  * 
  * @author juanmx
  *
@@ -16,7 +16,7 @@ public class mainSimpleCrud {
 	 * Creates a new SimpleCrud and launch it
 	 * Class SimpleCrud.java creates the view
 	 * 
-	 * TODO Add Nimbus Look and Feel
+	 * TODO Read the Look and Feel from the config file
 	 * @param args
 	 */
 
