@@ -1,6 +1,7 @@
 package com.juanmx.javasimplecrud;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 /**
@@ -21,19 +22,26 @@ public class mainSimpleCrud {
 	 */
 
 	public static void main(String[] args) {
+		
+		String configLookAndFeel;
+		ConfigManagement configManagement = new ConfigManagement();
+		configLookAndFeel = configManagement.getConfig("lookAndFeel");
+		
 		try {
             for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                    if ("Nimbus".equals(info.getName())) {
-                        //UIManager.setLookAndFeel(info.getClassName());
+                    if (configLookAndFeel.equals(info.getName())) {
+                        UIManager.setLookAndFeel(info.getClassName());
                         break;
                     }
             }
 	    } 
+		
 	    catch (Exception e) {
-	    // If Nimbus is not available, you can set the GUI to another look and feel.
+	    	JOptionPane.showMessageDialog( null, "Something went wrong when read " + configLookAndFeel + " in the config file", "!", JOptionPane.ERROR_MESSAGE );
+			e.printStackTrace();
 	    }
 		
-		viewSimpleCrud newViewSimpleCrud = new viewSimpleCrud();
+		viewSimpleCrud newViewSimpleCrud = new viewSimpleCrud(configLookAndFeel);
 		newViewSimpleCrud.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 		newViewSimpleCrud.setSize( 1280, 720 );
 		newViewSimpleCrud.setVisible( true );

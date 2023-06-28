@@ -2,6 +2,7 @@ package com.juanmx.javasimplecrud;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 import javax.swing.JButton;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import javax.swing.ButtonGroup;
 
 import javax.swing.JOptionPane;
+import javax.swing.JFileChooser;
 /**
  * Here creates the main view
  * 
@@ -34,7 +36,7 @@ public class viewSimpleCrud extends JFrame implements ActionListener{
 	private JRadioButtonMenuItem lookAndFeels[];
 	private ButtonGroup lookAndFeelsButtonGroup;
 	
-	public viewSimpleCrud(){
+	public viewSimpleCrud(String configLookAndFeel){
 		
 		super("Simple Crud");
 		
@@ -58,13 +60,19 @@ public class viewSimpleCrud extends JFrame implements ActionListener{
 		
 		ManagerElements managerElement = new ManagerElements();
 		
+		int intSelectedLookAndFeel = 0;
+		
 		for (int i = 0; i < lookAndFeelNames.size(); i++) {
 			lookAndFeels[i] = new JRadioButtonMenuItem(lookAndFeelNames.get(i));
 			menuLookAndFeel.add(lookAndFeels[i]);
 			lookAndFeelsButtonGroup.add(lookAndFeels[i]);
 			lookAndFeels[i].addActionListener(managerElement);
+			
+			if(configLookAndFeel.equals(lookAndFeelNames.get(i))) {
+				intSelectedLookAndFeel = i;
+			}
 		}
-		lookAndFeels[1].setSelected(true);
+		lookAndFeels[intSelectedLookAndFeel].setSelected(true);
 		
 		// Place holders for BorderLayout cardinals
 		schema = new BorderLayout(17, 5);
@@ -86,6 +94,22 @@ public class viewSimpleCrud extends JFrame implements ActionListener{
 		for(JButton button : buttons) {
 			if(event.getSource() == button) {
 				button.setVisible(false);
+				
+				JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setDialogTitle("Select a file");//titulo de ventana del JFileChooser
+
+                //Permite ver archivos con extencion especifica
+                //fileChooser.setFileFilter(new FileNameExtensionFilter("mp3 (*.mp3)", "mp3"));
+                int seleccion = fileChooser.showOpenDialog(null);
+
+      
+                if (seleccion == JFileChooser.APPROVE_OPTION) {
+                        File fileToSave = fileChooser.getSelectedFile();
+                        //textSonido.setText("");
+                        //textSonido.setText(fileToSave.getAbsolutePath());
+                        String fileName = fileToSave.getName();
+                        JOptionPane.showMessageDialog( null, "File name: " + fileName, "You selected", JOptionPane.INFORMATION_MESSAGE );
+                }
 			}
 			else {
 				button.setVisible(true);
@@ -116,6 +140,8 @@ public class viewSimpleCrud extends JFrame implements ActionListener{
 								ConfigManagement config = new ConfigManagement();
 								
 								config.setConfig("lookAndFeel", lookAndFeelSelected);
+								
+								System.out.println("Look and feel selected from the menu bar: " + lookAndFeelSelected);
 								
 								JOptionPane.showMessageDialog( null, "The look and feel " + lookAndFeelSelected + " will be set next time you run the program", "Can not put the theme at runtime", JOptionPane.INFORMATION_MESSAGE );
 								

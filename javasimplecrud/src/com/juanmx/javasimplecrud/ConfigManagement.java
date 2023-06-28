@@ -25,7 +25,7 @@ public class ConfigManagement {
 			
 			prop.setProperty(key, value);
 			prop.store(new FileOutputStream(CONFIG_FILE), null);
-			System.out.println("Done " + key + " " + value + " " + CONFIG_FILE);
+			System.out.println("Set config " + key + " " + value + " " + CONFIG_FILE);
 		    
 		}catch(IOException e){
 			JOptionPane.showMessageDialog( null, "Something went wrong when saving the changes", "!", JOptionPane.ERROR_MESSAGE );
@@ -44,7 +44,10 @@ public class ConfigManagement {
 			
 		}catch(IOException e) {
 			JOptionPane.showMessageDialog( null, "Something went wrong when reading the config file", "!", JOptionPane.ERROR_MESSAGE );
+			
 			e.printStackTrace();
+		}finally {
+			System.out.println("Get config " + key + " " + value + " " + CONFIG_FILE);
 		}
 		
 		return value;
