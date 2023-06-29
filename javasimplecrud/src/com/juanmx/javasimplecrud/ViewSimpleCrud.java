@@ -38,7 +38,7 @@ import javax.swing.JFileChooser;
  *
  */
 
-public class viewSimpleCrud extends JFrame implements ActionListener{
+public class ViewSimpleCrud extends JFrame implements ActionListener{
 	
 	//place holders layout
 	private JButton buttons[];
@@ -56,7 +56,7 @@ public class viewSimpleCrud extends JFrame implements ActionListener{
 	//table
 	JTable crudTable;
 	
-	public viewSimpleCrud(String configLookAndFeel){
+	public ViewSimpleCrud(String configLookAndFeel){
 		
 		super("Java Simple Crud");
 		

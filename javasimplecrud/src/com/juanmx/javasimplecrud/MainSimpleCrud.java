@@ -11,7 +11,7 @@ import javax.swing.UIManager.LookAndFeelInfo;
  *
  */
 
-public class mainSimpleCrud {
+public class MainSimpleCrud {
 	
 	/**
 	 * Creates a new SimpleCrud and launch it
@@ -41,7 +41,7 @@ public class mainSimpleCrud {
 			e.printStackTrace();
 	    }
 		
-		viewSimpleCrud newViewSimpleCrud = new viewSimpleCrud(configLookAndFeel);
+		ViewSimpleCrud newViewSimpleCrud = new ViewSimpleCrud(configLookAndFeel);
 		newViewSimpleCrud.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 		newViewSimpleCrud.setSize( 1280, 720 );
 		newViewSimpleCrud.setVisible( true );
