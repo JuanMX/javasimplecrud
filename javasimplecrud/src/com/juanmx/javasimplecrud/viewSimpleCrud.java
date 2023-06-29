@@ -21,6 +21,13 @@ import javax.swing.ButtonGroup;
 //action buttons CRUD
 import javax.swing.JPanel;
 
+//table
+import javax.swing.JTable;
+import javax.swing.RowFilter;
+import javax.swing.table.TableRowSorter;
+import javax.swing.table.TableModel;
+import javax.swing.JScrollPane;
+
 import javax.swing.JOptionPane;
 import javax.swing.JFileChooser;
 /**
@@ -45,9 +52,12 @@ public class viewSimpleCrud extends JFrame implements ActionListener{
 	private JPanel panelActionButtons;
 	private JButton actionButtons[];
 	
+	//table
+	JTable crudTable;
+	
 	public viewSimpleCrud(String configLookAndFeel){
 		
-		super("Simple Crud");
+		super("Java Simple Crud");
 		
 		//menu bar
 		JMenu menuLookAndFeel = new JMenu("Set Look and Feel");
@@ -85,7 +95,7 @@ public class viewSimpleCrud extends JFrame implements ActionListener{
 		
 		
 		// Place holders for BorderLayout cardinals
-		schema = new BorderLayout(17, 5);
+		schema = new BorderLayout(17, 17);
 		setLayout( schema );
 		/*
 		buttons = new JButton[names.length];
@@ -121,6 +131,20 @@ public class viewSimpleCrud extends JFrame implements ActionListener{
 		panelActionButtons.add(actionButtons[1]);
 		panelActionButtons.add(actionButtons[2]);
 		
+		//test data
+		String testData[][] = new String[100][5];
+		for(int row = 0; row < 100; row++) {
+			for(int column = 0; column < 5; column++) {
+				testData[row][column] = "test data for ceil (" + row + ", " + column + ")";
+			}
+		}
+		
+		
+		String crudTableColumnNames[] = {"id", "Description", "Key Words", "Help Image"};
+		
+		crudTable = new JTable(testData, crudTableColumnNames);
+		
+		add(new JScrollPane(crudTable), BorderLayout.CENTER);
 		add(panelActionButtons, BorderLayout.SOUTH);
 	}
 	
