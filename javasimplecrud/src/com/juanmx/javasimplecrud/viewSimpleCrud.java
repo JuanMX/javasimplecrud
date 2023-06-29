@@ -13,6 +13,7 @@ import java.awt.Color;
 import javax.swing.JRadioButtonMenuItem;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
+import javax.swing.border.LineBorder;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import java.util.ArrayList;
@@ -118,13 +119,15 @@ public class viewSimpleCrud extends JFrame implements ActionListener{
 		ManagerCrudButton managerCrudButton = new ManagerCrudButton();
 		
 		actionButtons[0] = new JButton("Create New");
-		actionButtons[0].setBackground(new Color(0,255,0));
+		actionButtons[0].setBorder(new LineBorder(new Color(0,255,0), 5));
 		actionButtons[0].addActionListener(managerCrudButton);
+		
 		actionButtons[1] = new JButton("Edit Record");
-		actionButtons[1].setBackground(new Color(255,255,0));
+		actionButtons[1].setBorder(new LineBorder(new Color(255,255,0), 5));
 		actionButtons[1].addActionListener(managerCrudButton);
+		
 		actionButtons[2] = new JButton("Delete Record");
-		actionButtons[2].setBackground(new Color(255,0,0));
+		actionButtons[2].setBorder(new LineBorder(new Color(255,0,0), 5));
 		actionButtons[2].addActionListener(managerCrudButton);
 		
 		panelActionButtons.add(actionButtons[0]);
