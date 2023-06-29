@@ -204,7 +204,7 @@ public class viewSimpleCrud extends JFrame implements ActionListener{
 								
 								System.out.println("Look and feel selected from the menu bar: " + lookAndFeelSelected);
 								
-								JOptionPane.showMessageDialog( null, "The look and feel " + lookAndFeelSelected + " will be set next time you run the program", "Can not put the theme at runtime", JOptionPane.INFORMATION_MESSAGE );
+								JOptionPane.showMessageDialog( null, "The look and feel " + lookAndFeelSelected + " will be set next time you run the program", "Can not put the theme at runtime :(", JOptionPane.WARNING_MESSAGE );
 								
 								break;
 							}
@@ -224,6 +224,7 @@ public class viewSimpleCrud extends JFrame implements ActionListener{
 		public void actionPerformed(ActionEvent event) {
 			if(event.getSource() == actionButtons[0]) {
 				JOptionPane.showMessageDialog( null, "Click on create ", "!", JOptionPane.PLAIN_MESSAGE );
+				ViewNewRecord viewNewRecord = new ViewNewRecord();
 			}
 			else if(event.getSource() == actionButtons[1]) {
 				JOptionPane.showMessageDialog( null, "Click on edit ", "!", JOptionPane.PLAIN_MESSAGE );
