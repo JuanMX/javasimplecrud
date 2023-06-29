@@ -28,18 +28,19 @@ public class MainSimpleCrud {
 		configLookAndFeel = configManagement.getConfig("lookAndFeel");
 		
 		try {
-            for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                    if (configLookAndFeel.equals(info.getName())) {
-                        UIManager.setLookAndFeel(info.getClassName());
-                        break;
-                    }
-            }
-	    } 
-		
-	    catch (Exception e) {
-	    	JOptionPane.showMessageDialog( null, "Something went wrong when read " + configLookAndFeel + " in the config file", "!", JOptionPane.ERROR_MESSAGE );
+			for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+			if (configLookAndFeel.equals(info.getName())) {
+				UIManager.setLookAndFeel(info.getClassName());
+				break;
+			}
+			}
+		} 
+		catch (Exception e) {
+			JOptionPane.showMessageDialog( null, "Something went wrong when read " + configLookAndFeel + " in the config file", "!", JOptionPane.ERROR_MESSAGE );
 			e.printStackTrace();
-	    }
+		}
+		
+		
 		
 		ViewSimpleCrud newViewSimpleCrud = new ViewSimpleCrud(configLookAndFeel);
 		newViewSimpleCrud.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );

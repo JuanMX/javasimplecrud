@@ -2,6 +2,8 @@ package com.juanmx.javasimplecrud;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.awt.event.ActionEvent;
@@ -149,6 +151,9 @@ public class ViewSimpleCrud extends JFrame implements ActionListener{
 		
 		add(new JScrollPane(crudTable), BorderLayout.CENTER);
 		add(panelActionButtons, BorderLayout.SOUTH);
+		
+		//set window icon
+		setIconImage(new Utils().getWindowIcon());
 	}
 	
 	public void actionPerformed(ActionEvent event){

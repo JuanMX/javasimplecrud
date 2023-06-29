@@ -61,11 +61,12 @@ public class ViewNewRecord extends JFrame{
 		addComponent(areaText2, 3, 2, 1, 1);
 		
 		setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );   
-        setSize( 850, 300 );
-        setVisible( true );
-        //setResizable(false);
-        setLocationRelativeTo(null);
+		setSize( 850, 300 );
+		setVisible( true );
+		//setResizable(false);
+		setLocationRelativeTo(null);
 		
+		setIconImage(new Utils().getWindowIcon());
 	}
 	
 	private void addComponent(Component component, int row, int column, int width, int height) {
