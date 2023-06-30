@@ -2,12 +2,16 @@ package com.juanmx.javasimplecrud;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
+import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JFileChooser;
+
 /**
  * In the main view when click the button [New record]
  *     Shows a new window
@@ -21,44 +25,54 @@ public class ViewNewRecord extends JFrame{
 	
 	private GridBagLayout schema;
 	private GridBagConstraints restrictions;
+	private JLabel imageLabel, descriptionLabel, keyWordsLabel;
 	
 	public ViewNewRecord() {
-		super("Test New Record GridBagLayout");
+		super("New Record");
 		schema = new GridBagLayout();
 		setLayout(schema);
 		restrictions = new GridBagConstraints();
 		
-		JTextArea areaText1 = new JTextArea("Area1",5,10);
-		JTextArea areaText2 = new JTextArea("Area2",2,2);
+		JTextArea areaTextDescription = new JTextArea("",5,10);
+		JTextArea areaTextKeyWords = new JTextArea("",2,2);
+		areaTextKeyWords.setToolTipText("Key words for a better search");
 		
 		String names[] = {"NAME1", "NAME2", "NAME3"};
 		JComboBox boxComb = new JComboBox(names);
 		
 		JTextField fieldText = new JTextField("Field Text");
-		JButton button1 = new JButton("Button 1");
-		JButton button2 = new JButton("Button 2");
-		JButton button3 = new JButton("Button 3");
+		JButton buttonChooseImage = new JButton("Search for a image");
+		buttonChooseImage.setToolTipText("Search for a image is optional");
+		JButton buttonSave = new JButton("Save New Record");
+		buttonSave.setBackground(new Color(0,255,255));
 		
+		// left element preview image
 		restrictions.fill = GridBagConstraints.BOTH;
-		addComponent(areaText1, 0, 0, 1, 3);
+		restrictions.weightx = 40;
+		restrictions.weighty = 25;
+		imageLabel = new JLabel();
+		addComponent(imageLabel, 0, 0, 1, 11);
 		
-		addComponent(button1, 4, 1, 2, 1);
-		
-		restrictions.weightx = 1000;
-		restrictions.weighty = 1;
-		restrictions.fill = GridBagConstraints.BOTH;
-		addComponent( areaText2, 1, 1, 1, 1);
-		
-		restrictions.weightx = 0;
-		restrictions.weighty = 0;
-		addComponent(button3, 1, 2, 1, 1);
-		
-		addComponent(fieldText, 3, 1, 2, 1);
-		
-		addComponent(button2, 3, 2, 1, 1);
+		restrictions.weightx = 75;
+		restrictions.weighty = 75;
 		
 		restrictions.fill = GridBagConstraints.HORIZONTAL;
-		//addComponent(button1, 0, 1, 2, 1);
+		descriptionLabel = new JLabel("Description:");
+		addComponent(descriptionLabel, 0, 3, 3, 1);
+		restrictions.fill = GridBagConstraints.BOTH;
+		addComponent( areaTextDescription, 1, 4, 3, 4);
+		
+		restrictions.fill = GridBagConstraints.HORIZONTAL;
+		keyWordsLabel = new JLabel("Key Words:");
+		addComponent( keyWordsLabel, 5, 3, 3, 1);
+		addComponent( areaTextKeyWords, 6, 4, 3, 2);
+		
+		
+		restrictions.fill = GridBagConstraints.HORIZONTAL;
+		addComponent(buttonChooseImage, 9, 4, 2, 1);
+		restrictions.fill = GridBagConstraints.NONE;
+		addComponent(buttonSave, 10, 4, 2, 1);
+
 		
 		setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );   
 		setSize( 850, 300 );
