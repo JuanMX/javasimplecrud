@@ -42,23 +42,23 @@ public class ViewNewRecord extends JFrame{
 		restrictions.fill = GridBagConstraints.BOTH;
 		addComponent(areaText1, 0, 0, 1, 3);
 		
-		restrictions.fill = GridBagConstraints.HORIZONTAL;
-		addComponent(button1, 0, 1, 2, 1);
-		
-		addComponent(boxComb, 2, 1, 2, 1);
+		addComponent(button1, 4, 1, 2, 1);
 		
 		restrictions.weightx = 1000;
 		restrictions.weighty = 1;
 		restrictions.fill = GridBagConstraints.BOTH;
-		addComponent(button2, 1, 1, 1, 1);
+		addComponent( areaText2, 1, 1, 1, 1);
 		
 		restrictions.weightx = 0;
 		restrictions.weighty = 0;
 		addComponent(button3, 1, 2, 1, 1);
 		
-		addComponent(fieldText, 3, 0, 2, 1);
+		addComponent(fieldText, 3, 1, 2, 1);
 		
-		addComponent(areaText2, 3, 2, 1, 1);
+		addComponent(button2, 3, 2, 1, 1);
+		
+		restrictions.fill = GridBagConstraints.HORIZONTAL;
+		//addComponent(button1, 0, 1, 2, 1);
 		
 		setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );   
 		setSize( 850, 300 );

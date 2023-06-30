@@ -9,5 +9,5 @@ public class Utils {
 		Image windowIcon = myToolkit.getImage("./assets/icon.png");
 		return windowIcon;
 	}
-	
+	//TODO Create a Method to Obtain x percent from a int value 
 }

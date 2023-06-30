@@ -228,7 +228,6 @@ public class ViewSimpleCrud extends JFrame implements ActionListener{
 		
 		public void actionPerformed(ActionEvent event) {
 			if(event.getSource() == actionButtons[0]) {
-				JOptionPane.showMessageDialog( null, "Click on create ", "!", JOptionPane.PLAIN_MESSAGE );
 				ViewNewRecord viewNewRecord = new ViewNewRecord();
 			}
 			else if(event.getSource() == actionButtons[1]) {
