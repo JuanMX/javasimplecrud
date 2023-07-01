@@ -36,6 +36,9 @@ public class ViewNewRecord extends JFrame{
 	private GridBagConstraints restrictions;
 	private JLabel imageLabel, descriptionLabel, keyWordsLabel;
 	JButton buttonChooseImage = new JButton("Search for a image");
+	JButton viewImage = new JButton("view");
+	JTextField pathImage;
+	
 	
 	public ViewNewRecord() {
 		super("New Record");
@@ -79,9 +82,19 @@ public class ViewNewRecord extends JFrame{
 		
 		
 		restrictions.fill = GridBagConstraints.HORIZONTAL;
+		restrictions.weightx = 0;
 		ManagerImageButton managerImageButton = new ManagerImageButton();
 		buttonChooseImage.addActionListener(managerImageButton);
-		addComponent(buttonChooseImage, 9, 4, 2, 1);
+		addComponent(buttonChooseImage, 9, 4, 1, 1);
+		
+		pathImage= new JTextField(1000);
+		pathImage.setEnabled(false);
+		addComponent(pathImage, 9, 5, 1, 1);
+		
+		addComponent(viewImage, 9, 6, 1, 1);
+		
+		
+		
 		restrictions.fill = GridBagConstraints.NONE;
 		addComponent(buttonSave, 10, 4, 2, 1);
 
@@ -124,6 +137,7 @@ public class ViewNewRecord extends JFrame{
 					String imageAbsolutePath = fileToSave.getAbsolutePath();
 					ImageIcon labelImage = new ImageIcon(new ImageIcon(imageAbsolutePath).getImage().getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_DEFAULT));
 					imageLabel.setIcon(labelImage);
+					pathImage.setText(imageAbsolutePath);
 					//JOptionPane.showMessageDialog( null, "File name: " + imageAbsolutePath, "You selected", JOptionPane.INFORMATION_MESSAGE );
 				}
 			}
