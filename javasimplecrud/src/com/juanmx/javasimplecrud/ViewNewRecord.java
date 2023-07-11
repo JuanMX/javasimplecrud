@@ -46,7 +46,7 @@ public class ViewNewRecord extends JFrame{
 		setLayout(schema);
 		restrictions = new GridBagConstraints();
 		
-		JTextArea areaTextDescription = new JTextArea("",5,10);
+		JTextArea areaTextDescription = new JTextArea("",2,2);
 		JTextArea areaTextKeyWords = new JTextArea("",2,2);
 		areaTextKeyWords.setToolTipText("Key words for a better search");
 		
@@ -57,14 +57,14 @@ public class ViewNewRecord extends JFrame{
 		
 		buttonChooseImage.setToolTipText("Optional Field");
 		JButton buttonSave = new JButton("Save New Record");
-		buttonSave.setBackground(new Color(0,255,255));
+		buttonSave.setBackground(new Color(0,170,170));
 		
 		// left element preview image
 		restrictions.fill = GridBagConstraints.BOTH;
 		restrictions.weightx = 27;
 		restrictions.weighty = 100;
 		imageLabel = new JLabel();
-		addComponent(imageLabel, 0, 0, 2, 11);
+		//addComponent(imageLabel, 0, 0, 2, 11);
 		
 		restrictions.weightx = 75;
 		restrictions.weighty = 100;
@@ -91,6 +91,8 @@ public class ViewNewRecord extends JFrame{
 		pathImage.setEnabled(false);
 		addComponent(pathImage, 9, 5, 1, 1);
 		
+		viewImage.setEnabled(false);
+		viewImage.setToolTipText("In construction");
 		addComponent(viewImage, 9, 6, 1, 1);
 		
 		
@@ -100,7 +102,7 @@ public class ViewNewRecord extends JFrame{
 
 		
 		setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );   
-		setSize( 850, 300 );
+		setSize( new Utils().screenPercentageWidth(50), new Utils().screenPercentageHeight(50) );
 		setVisible( true );
 		//setResizable(false);
 		setLocationRelativeTo(null);

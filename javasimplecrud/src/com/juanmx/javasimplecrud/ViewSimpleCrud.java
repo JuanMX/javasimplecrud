@@ -27,6 +27,7 @@ import javax.swing.JPanel;
 //table
 import javax.swing.JTable;
 import javax.swing.RowFilter;
+import javax.swing.SwingUtilities;
 import javax.swing.table.TableRowSorter;
 import javax.swing.table.TableModel;
 import javax.swing.JScrollPane;
@@ -58,16 +59,19 @@ public class ViewSimpleCrud extends JFrame implements ActionListener{
 	//table
 	JTable crudTable;
 	
+	JMenuBar bar;
+	JMenu menuLookAndFeel;
+	
 	public ViewSimpleCrud(String configLookAndFeel){
 		
 		super("Java Simple Crud");
 		
 		//menu bar
-		JMenu menuLookAndFeel = new JMenu("Set Look and Feel");
+		menuLookAndFeel = new JMenu("Set Look and Feel");
 		menuLookAndFeel.setMnemonic('L');
 		
 		
-		JMenuBar bar = new JMenuBar();
+		bar = new JMenuBar();
 		setJMenuBar(bar);
 		bar.add(menuLookAndFeel);
 		
@@ -185,7 +189,7 @@ public class ViewSimpleCrud extends JFrame implements ActionListener{
 	}
 	
 	
-	private class ManagerElements implements ActionListener {
+	private class ManagerElements extends JFrame implements ActionListener {
 		
 		public void actionPerformed(ActionEvent event) {
 			
@@ -210,6 +214,10 @@ public class ViewSimpleCrud extends JFrame implements ActionListener{
 								System.out.println("Look and feel selected from the menu bar: " + lookAndFeelSelected);
 								
 								JOptionPane.showMessageDialog( null, "The look and feel " + lookAndFeelSelected + " will be set next time you run the program", "Can not put the theme at runtime :(", JOptionPane.WARNING_MESSAGE );
+								
+								//setDefaultLookAndFeelDecorated(true);
+								//UIManager.setLookAndFeel(info.getClassName());
+								//SwingUtilities.updateComponentTreeUI(this);
 								
 								break;
 							}
